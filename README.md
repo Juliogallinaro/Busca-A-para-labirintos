@@ -1,17 +1,22 @@
 # Busca A* para resolução de labirintos
 Busca A* para resolução de labirintos em python, com função de plot e testes de performance.
 
-A algoritmo A* decide qual caminho seguir baseado no custo de cada uma das células do labirinto e o algoritmo seleciona o caminho com custo mínimo. O custo de uma célula $n$ tem duas partes e é definido como:
+O algoritmo A* decide qual caminho seguir com base no custo de cada uma das células do labirinto, sempre selecionando o caminho com custo mínimo. O custo de uma célula $n$ é definido como:
 
-![formula](https://render.githubusercontent.com/render/math?math=f(n)=g(n)%2Bh(n))
+$$
+f(n) = g(n) + h(n)
+$$
 
-Onde ![formula](https://render.githubusercontent.com/render/math?math=f(n)) é o custo total para atingir a céula ![formula](https://render.githubusercontent.com/render/math?math=n) e ![formula](https://render.githubusercontent.com/render/math?math=g(n)) e ![formula](https://render.githubusercontent.com/render/math?math=h(n)) são definidos como:
+Onde:
+- $f(n)$ representa o custo total para atingir a célula $n$;
+- $g(n)$ é o custo real para alcançar a célula $n$ a partir da célula inicial;
+- $h(n)$ é o custo heurístico para chegar à célula objetivo a partir da célula $n$.
 
-![formula](https://render.githubusercontent.com/render/math?math=g(n)) É o custo real para alcançar a célula ![formula](https://render.githubusercontent.com/render/math?math=n) a partir da célula inicial.
+A escolha adequada da função heurística é um dos fatores essenciais para o desempenho do algoritmo A*. Neste projeto, utilizamos a **distância de Manhattan** como função heurística:
 
-![formula](https://render.githubusercontent.com/render/math?math=h(n)) É o custo heurístico para chegar à célula objetivo a partir da célula ![formula](https://render.githubusercontent.com/render/math?math=n). Seleção adequada da função heurística é um parâmetro-chave do algoritmo A*. Foi utilizada a distância de Manhattan como a função heurística:
-
-![formula](https://render.githubusercontent.com/render/math?math=d(x%2Cy)%20%3D%20\sum_{i=1}^{n}\left|x_{i}-y_{i}\right|)
+$$
+d(x, y) = \sum_{i=1}^{n} |x_i - y_i|
+$$
 
 É a inclusão do custo Heurístico no algoritmo A* que o torna eficiente em comparação ao BFS ou DFS, pois o algoritmo seleciona as células com custo mínimo (custo real + custo estimado) e, portanto, se aproxima do objetivo rapidamente.
 
